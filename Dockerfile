@@ -1,4 +1,19 @@
-FROM nginx:alpine
+FROM python:3.8
+
+# Install Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt install ./google-chrome-stable_current_amd64.deb -y
+
+# Install ChromeDriver
+RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip
+RUN mv chromedriver /usr/bin/chromedriver
+RUN chmod +x /usr/bin/chromedriver
+
+# Install Selenium
+RUN pip install selenium
+
+# Copy your test script into the container
 WORKDIR /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY index.html /usr/share/nginx/html/index.html

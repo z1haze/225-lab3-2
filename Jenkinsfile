@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Dev Environment') {
+        stage('Deploy to Dev Environment using NodePort') {
             steps {
                 script {
                     // Set up Kubernetes configuration using the specified KUBECONFIG

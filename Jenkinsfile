@@ -6,7 +6,7 @@ pipeline {
         DOCKER_IMAGE = 'cithit/roseaw'                                                 // <------change this
         IMAGE_TAG = "build-${BUILD_NUMBER}"
         GITHUB_URL = 'https://github.com/miamioh-cit/225-lab3-2.git'                   // <------change this
-        KUBECONFIG = credentials('roseaw')                                             // <------change this
+        KUBECONFIG = credentials('roseaw-225')                                             // <------change this
     }
 
     stages {
